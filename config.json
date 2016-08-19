@@ -1,0 +1,11 @@
+{
+    "mqtt_connection": {
+        "host": "localhost",
+        "port": 1883,
+        "keepalive": 60
+    },
+    "topics": [
+        "test1",
+        "test2
+    ]
+}
