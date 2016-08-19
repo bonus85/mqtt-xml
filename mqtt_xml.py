@@ -9,13 +9,14 @@ import cherrypy
 import paho.mqtt.client as mqtt
 from dicttoxml import dicttoxml
 
+
 class MqttHandler:
 
     def __init__(self, config):
         self.config = config
         self.topics = config['topics']
-        self.data = dict((topic, deque(maxlen=config['history']))
-            for topic in self.topics)
+        self.data = dict(
+            (topic, deque(maxlen=config['history'])) for topic in self.topics)
         
         self.client = mqtt.Client()
         self.client.on_connect = self.mqtt_on_connect
@@ -51,6 +52,7 @@ class MqttHandler:
         self.client.loop_stop()
         self.client.disconnect()
         cherrypy.log('Disconnected from mqtt broker')
+
 
 class Endpoint:
 
