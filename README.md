@@ -1,5 +1,5 @@
 # mqtt-xml
-MQTT adapter with httm/xml endpoint
+MQTT adapter with http/xml endpoint
 
 ## Setup
 1. Install python 2.7 + pip

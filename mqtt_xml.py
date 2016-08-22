@@ -29,7 +29,7 @@ class MqttHandler:
         except KeyError:
             pass
         else:
-            self.client.username_pw_set()
+            self.client.username_pw_set(username, password)
         
     def mqtt_on_connect(self, client, userdata, flags, rc):
         for topic in self.topics:
