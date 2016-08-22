@@ -70,7 +70,8 @@ if __name__ == '__main__':
     mqtt_handler = MqttHandler(config)
     cherrypy.tree.mount(Endpoint(mqtt_handler), '/')
 
-    cherrypy.engine.start()
     with mqtt_handler:
+        cherrypy.engine.start()
         cherrypy.log('Service started, press <ctrl> + C to exit')
         cherrypy.engine.block()
+        cherrypy.engine.exit()
