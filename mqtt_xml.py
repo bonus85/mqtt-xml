@@ -38,9 +38,9 @@ class MqttHandler:
     def mqtt_on_message(self, client, userdata, msg):
         cherrypy.log('Receieved mqtt message on topic {}'.format(msg.topic))
         try:
-            message = json.loads(msg.payload)
+            message = json.loads(str(msg.payload))
         except ValueError:
-            message = msg.payload
+            message = str(msg.payload)
         self.data[msg.topic].append(message)
 
     def __enter__(self):
